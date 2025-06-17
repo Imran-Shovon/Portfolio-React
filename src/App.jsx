@@ -6,6 +6,7 @@ import Experience from "./features/Experience/Experience";
 import Footer from "./features/Footer/Footer";
 import Home from "./features/Home/Home";
 import Projects from "./features/Projects/Project";
+import Research from "./features/ResearchActivities/Research";
 import "./index.css"; // Ensure you have your styles imported
 
 const App = () => {
@@ -30,7 +31,7 @@ const App = () => {
       </section>
 
       <section id="research" className="h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-        <h1 className="text-4xl font-bold">Footer Section</h1>
+        <Research />
       </section>
 
       <section id="about" className="">

@@ -1,16 +1,16 @@
 import { useState } from "react";
-import projects from "../../utils/ProjectDetails";
+import paperDetils from "../../utils/PaperDetails";
 import ProjectCard from "../../components/ProjectCard";
 import ProjectModal from "../../components/ProjectModal";
 
-const Projects = () => {
+const Research = () => {
   const [filter, setFilter] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
 
 
-  const filtered = filter === "All" ? projects : projects.filter(p => p.category === filter);
+  const filtered = filter === "All" ? paperDetils : paperDetils.filter(p => p.category === filter);
 
   const openModal = (project) => {
     setSelectedProject(project);
@@ -19,13 +19,13 @@ const Projects = () => {
 
   return (
     <section className="py-16 px-4 md:px-12 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold text-white text-center mb-2">Projects</h2>
+      <h2 className="text-3xl font-bold text-white text-center mb-2">Research Paper</h2>
       <p className="text-gray-400 text-center mb-8">
-        I have worked on a wide range of projects. Here are some of my projects.
+        I have worked on several papers. Here are some of my paper I have published.
       </p>
 
       <div className="flex justify-center gap-4 mb-10">
-        {["All", "Web App"].map((type) => (
+        {[].map((type) => (
           <button
             key={type}
             onClick={() => setFilter(type)}
@@ -55,4 +55,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Research;
