@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import Button from "./Button";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { toggleDarkMode } from "../utils/theme";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import Button from "./Button";
 
 const Navbar = () => {
   const [isDark, setIsDark] = useState(() =>
@@ -40,7 +40,7 @@ const Navbar = () => {
         {/* Logo + Name */}
         <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
           {/* <span className="mr-2">🚀</span>  */}
-          Md Shovon Biswas
+          <a href="#top">Md Shovon Biswas</a>
         </div>
 
         {/* Desktop Nav */}
