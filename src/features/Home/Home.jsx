@@ -1,0 +1,52 @@
+import profileImg from '../../assets/images/shovon.jpeg'; // Ensure the image exists
+
+const Home = () => {
+  return (
+    <section
+      id="home"
+      className="min-h-screen w-full pt-24 px-6 md:px-12 flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-16"
+    >
+      {/* Left Content */}
+      <div className="md:w-1/2 w-full text-center md:text-left">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug">
+          Hi, I am <br />
+          <span className="text-purple-500">Md. Shovon Biswas</span>
+        </h1>
+
+        <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mt-4">
+          I am a <span className="text-purple-400">Frontend Developer</span>
+        </h2>
+
+        <p className="mt-4 text-sm sm:text-base text-gray-700 dark:text-gray-300">
+          I am a motivated and versatile individual, always eager to take on new challenges.
+          With a passion for learning, I am dedicated to delivering high-quality results.
+          With a positive attitude and a growth mindset, I am ready to make a meaningful
+          contribution and achieve great things.
+        </p>
+
+        <div className="mt-6 mb-6">
+          <a
+            href="../../assets/pdf/Md_Shovon_Biswas.pdf"
+            download
+            className="inline-block px-6 py-3 rounded-md bg-gray-700 dark:bg-gray-600 text-white hover:bg-blue-500 dark:hover:bg-blue-400 transition duration-300"
+          >
+            Check Resume
+          </a>
+        </div>
+      </div>
+
+      {/* Profile Picture */}
+      <div className="md:w-1/2 w-full flex justify-center md:justify-end">
+        <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-purple-500 shadow-xl">
+          <img
+            src={profileImg}
+            alt="Md. Shovon Biswas"
+            className="object-cover w-full h-full"
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Home;
