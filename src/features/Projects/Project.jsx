@@ -1,4 +1,5 @@
 import { useState } from "react";
+import projects from "../../utils/ProjectDetails";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 
@@ -7,19 +8,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const projects = [
-    {
-      title: "People Desk: HR Management System",
-      duration: "Jan 2022 – Sep 2022",
-      image: "/projects/peopledesk.png",
-      description:
-        "Led the development of People Desk, a robust HR management system designed to streamline and enhance human resources operations...",
-      tags: ["React Js", ".NET", "SQL", "Store Procedure", "Redux"],
-      category: "Web App",
-      code: "https://github.com/example/hr-code",
-      live: "https://hr.example.com",
-    },
-  ];
+
 
   const filtered = filter === "All" ? projects : projects.filter(p => p.category === filter);
 
@@ -51,7 +40,7 @@ const Projects = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 content-center sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filtered.map((project, i) => (
           <ProjectCard key={i} project={project} onClick={openModal} />
         ))}

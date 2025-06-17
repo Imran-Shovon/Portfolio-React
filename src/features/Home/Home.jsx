@@ -4,10 +4,10 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="min-h-screen w-full pt-24 px-6 md:px-12 flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-16"
+      className="min-h-screen w-full pt-24 px-6 md:px-12 flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-16"
     >
       {/* Left Content */}
-      <div className="md:w-1/2 w-full text-center md:text-left">
+      <div className="md:w-1/3 w-full text-center md:text-left">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug">
           Hi, I am <br />
           <span className="text-purple-500">Md. Shovon Biswas</span>
@@ -36,7 +36,7 @@ const Home = () => {
       </div>
 
       {/* Profile Picture */}
-      <div className="md:w-1/2 w-full flex justify-center md:justify-end">
+      <div className="md:w-1/3 w-full flex justify-center md:justify-end">
         <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-purple-500 shadow-xl">
           <img
             src={profileImg}
