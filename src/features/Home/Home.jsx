@@ -26,8 +26,9 @@ const Home = () => {
 
         <div className="mt-6 mb-6">
           <a
-            href="../../assets/pdf/Md_Shovon_Biswas.pdf"
-            download
+            href="https://drive.google.com/file/d/1W7U-KWDSOEPnrJKgFvIIzKiq3Dmgtcq0/view?usp=sharing"
+            target='_blank'
+            rel="noopener noreferrer"
             className="inline-block px-6 py-3 rounded-md bg-gray-700 dark:bg-gray-600 text-white hover:bg-blue-500 dark:hover:bg-blue-400 transition duration-300"
           >
             Check Resume
