@@ -1,3 +1,4 @@
+import { Typewriter } from 'react-simple-typewriter';
 import profileImg from '../../assets/images/shovon.jpeg'; // Ensure the image exists
 
 const Home = () => {
@@ -14,7 +15,18 @@ const Home = () => {
         </h1>
 
         <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mt-4">
-          I am a <span className="text-purple-400">Frontend Developer</span>
+          I am a{' '}
+          <span className="text-purple-400">
+            <Typewriter
+              words={['Frontend Developer', 'Researcher']}
+              loop={Infinity}
+              cursor
+              cursorStyle="|"
+              typeSpeed={80}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
+          </span>
         </h2>
 
         <p className="mt-4 text-sm sm:text-base text-gray-700 dark:text-gray-300">
@@ -27,7 +39,7 @@ const Home = () => {
         <div className="mt-6 mb-6">
           <a
             href="https://drive.google.com/file/d/1W7U-KWDSOEPnrJKgFvIIzKiq3Dmgtcq0/view?usp=sharing"
-            target='_blank'
+            target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-6 py-3 rounded-md bg-gray-700 dark:bg-gray-600 text-white hover:bg-blue-500 dark:hover:bg-blue-400 transition duration-300"
           >
