@@ -1,8 +1,8 @@
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen py-24 bg-gray-900 text-white flex flex-col items-center justify-center p-6">
       <div className="mb-4 text-sm font-semibold text-blue-400">Get In Touch</div>
       <h2 className="text-4xl font-bold mb-2">Contact Me</h2>
       <p className="text-center max-w-xl text-gray-400 mb-10">

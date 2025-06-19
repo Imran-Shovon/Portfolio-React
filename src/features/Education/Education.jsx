@@ -4,7 +4,7 @@ import educationData from '../../utils/Education';
 
 export default function Education() {
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-[#0f0c29] to-[#302b63] text-white min-h-screen">
+    <section className="py-24 px-4 bg-gradient-to-b from-[#0f0c29] to-[#302b63] text-white min-h-screen">
       <div className="max-w-4xl mx-auto text-center mb-12">
         <h2 className="text-4xl font-bold mb-4">Education</h2>
         <p className="text-lg text-gray-300">

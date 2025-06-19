@@ -30,7 +30,7 @@ const App = () => {
         <Education />
       </section>
 
-      <section id="research" className="h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+      <section id="research" className="">
         <Research />
       </section>
 

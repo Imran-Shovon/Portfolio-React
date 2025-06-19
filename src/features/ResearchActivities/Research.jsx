@@ -18,7 +18,7 @@ const Research = () => {
   };
 
   return (
-    <section className="py-16 px-4 md:px-12 max-w-7xl mx-auto">
+    <section className="py-24 px-4 md:px-12 max-w-7xl mx-auto">
       <h2 className="text-3xl font-bold text-white text-center mb-2">Research Paper</h2>
       <p className="text-gray-400 text-center mb-8">
         I have worked on several papers. Here are some of my paper I have published.
