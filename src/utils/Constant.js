@@ -1,1 +1,4 @@
+export const RESEARCH_GATE_PROFILE_LINK = "https://www.researchgate.net/profile/Md-Biswas-16?ev=hdr_xprf"
 export const MANGO_DISEASE_PAPER_LINK = "https://www.researchgate.net/profile/Md-Rahman-40/publication/370418634_A_Deep_Learning_Based_Smartphone_Application_for_Detecting_Mango_Diseases_and_Pesticide_Suggestions/links/644f5d6b809a5350213ef10e/A-Deep-Learning-Based-Smartphone-Application-for-Detecting-Mango-Diseases-and-Pesticide-Suggestions.pdf";
+export const SUICIDE_PAPER_LINK = "https://books.google.com.bd/books?hl=en&lr=&id=CNN-EAAAQBAJ&oi=fnd&pg=PA279&dq=Identifying+the+Signature+of+Suicidality+:+A+Machine+Learning+Approach&ots=WQc7RMFMrk&sig=q1dkRQ0mitLeh-5-isKLM0HVvsc&redir_esc=y#v=onepage&q=Identifying%20the%20Signature%20of%20Suicidality%20%3A%20A%20Machine%20Learning%20Approach&f=false";
+export const LANE_DETECTION_PAPER_LINK = "https://ieeexplore.ieee.org/abstract/document/9689883";

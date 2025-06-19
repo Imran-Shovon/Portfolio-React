@@ -1,6 +1,7 @@
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toggleDarkMode } from "../utils/theme";
+import LOGO_IMAGE from '../assets/images/shovon_logo.png'
 import Button from "./Button";
 
 const Navbar = () => {
@@ -40,7 +41,7 @@ const Navbar = () => {
         {/* Logo + Name */}
         <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
           {/* <span className="mr-2">🚀</span>  */}
-          <a href="#top">Md Shovon Biswas</a>
+          <a href="#top"><img src={LOGO_IMAGE} /></a>
         </div>
 
         {/* Desktop Nav */}

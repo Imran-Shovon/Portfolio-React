@@ -77,7 +77,7 @@ const ProjectModal = ({ isOpen, closeModal, project }) => {
                       rel="noopener noreferrer"
                       className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700"
                     >
-                      View Code
+                      { project.link2? project.link2 : "View Code"}
                     </a>
                   )}
                   {project.live && (
@@ -87,7 +87,7 @@ const ProjectModal = ({ isOpen, closeModal, project }) => {
                       rel="noopener noreferrer"
                       className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-500"
                     >
-                      View Live App
+                      { project.link? project.link : "View Live App"}
                     </a>
                   )}
                 </div>
