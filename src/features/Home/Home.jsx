@@ -30,10 +30,14 @@ const Home = () => {
         </h2>
 
         <p className="mt-4 text-sm sm:text-base text-gray-700 dark:text-gray-300">
-          I am a motivated and versatile individual, always eager to take on new challenges.
-          With a passion for learning, I am dedicated to delivering high-quality results.
-          With a positive attitude and a growth mindset, I am ready to make a meaningful
-          contribution and achieve great things.
+          Driven by curiosity and fueled by creativity, I’m a passionate and detail-oriented software engineer 
+          with a strong background in <strong>frontend development and academic research</strong>. 
+          With a strong foundation in 
+          frontend technologies like React and Angular. I’ve published three research papers, 
+          showcasing my ability to blend innovation with real-world problem-solving. I’m committed to continuous 
+          learning, clean code, and creating meaningful impact through innovation, collaboration, and thoughtful 
+          problem-solving.
+
         </p>
 
         <div className="mt-6 mb-6">

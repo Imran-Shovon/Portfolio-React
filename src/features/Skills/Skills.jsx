@@ -7,14 +7,15 @@ const skills = [
     title: "Frontend",
     icon: <Code2 className="text-blue-500" />,
     items: [
-      "JavaScript", "TypeScript", "React.js", "Next.js", "Tailwind CSS",
-      "ShadCN UI", "Ant Design", "Redux", "React Query", "Framer Motion", "GSAP"
+      "Angular", "React.js", "JavaScript", "TypeScript", "Tailwind CSS",
+      "Bootstrap", "Nebular", "Angular Material", "Redux", "React Query", "Chakra UI", "Material UI", 
+      "HTML5", "CSS3", 
     ],
   },
   {
     title: "Backend",
     icon: <Server className="text-green-500" />,
-    items: ["Node.js", "Express.js", "REST API"],
+    items: ["Node.js", "DotNet Core", "Django", "REST API"],
   },
   {
     title: "Database",
@@ -24,18 +25,19 @@ const skills = [
   {
     title: "Programming",
     icon: <Braces className="text-pink-500" />,
-    items: ["JavaScript", "TypeScript", "SQL"],
+    items: ["JavaScript", "TypeScript", "C#", "C++", "Python" ],
   },
   {
     title: "Tools",
     icon: <Wrench className="text-yellow-500" />,
-    items: ["VS Code", "Git CLI", "GitHub", "Postman", "Chrome DevTools", "ClickUp"],
+    items: ["VS Code", "Git CLI", "GitHub", "Postman", "Chrome DevTools", "Docker", "Jenkns", "Kubernetes",
+      "ClickUp","Jira", "Figma",  "Vercel"],
   },
-  {
-    title: "Creative",
-    icon: <PenTool className="text-red-500" />,
-    items: ["Figma", "Illustrator", "Photoshop"],
-  },
+  // {
+  //   title: "Creative",
+  //   icon: <PenTool className="text-red-500" />,
+  //   items: ["Figma", "Illustrator", "Photoshop"],
+  // },
 ];
 
 export default function Skills() {

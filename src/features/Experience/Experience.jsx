@@ -5,13 +5,17 @@ const Experience = () => {
 >
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold">Experience</h2>
-        <p className="mt-2 w-4/5 md:w-3/6 mx-auto 
+        <p className="mt-2 w-4/5 md:w-5/8 mx-auto 
            text-gray-700 dark:text-gray-300 
-           leading-relaxed tracking-wide"
+           leading-relaxed tracking-wide text-justify"
 >
-          Over the years, I've contributed to the development of enterprise-grade web applications across different companies. 
-          At Checkpoint Systems Ltd., I focused on building scalable solutions using .NET and React. At Giga Tech Limited, I developed 
-          and enhanced backend systems using .NET Core and delivered user-friendly frontend interfaces with React JS.
+          Experienced software developer with a proven track record in designing 
+          and implementing eKYC solutions for banking web applications across various institutions. 
+          At Giga Tech Limited, I specialized in building scalable, robust systems using .NET Core 
+          for backend development and delivering intuitive frontend interfaces with Angular and React JS. 
+          Additionally, I contributed as a DevOps engineer, optimizing deployment pipelines to ensure 
+          seamless application delivery. My diverse skill set spans full-stack development and DevOps, 
+          enabling end-to-end contribution to high-impact financial technology projects.
         </p>
       </div>
 
