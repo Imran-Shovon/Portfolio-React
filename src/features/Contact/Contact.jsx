@@ -1,6 +1,34 @@
 import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { useState } from "react";
 
 export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleReset = () => {
+    setName("");
+    setEmail("");
+    setSubject("");
+    setMessage("");
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const ContactInfo = {
+      name: name,
+      email: email,
+      subject: subject,
+      message: message,
+    }
+    console.log(ContactInfo);
+    alert("Your message has been sent successfully!");
+
+    handleReset();
+  }
+
+
   return (
     <div className="min-h-screen py-24 px-6 
                     bg-gray-50 dark:bg-gray-900 
@@ -54,12 +82,14 @@ export default function Contact() {
         </div>
 
         {/* Contact Form */}
-        <form className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8 space-y-6">
+        <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="text-sm text-gray-800 dark:text-gray-200">Your Name</label>
               <input
                 type="text"
+                onChange={(e) => setName(e.target.value)}
+                value = {name}
                 placeholder="Enter your name"
                 className="w-full p-3 mt-1 
                            bg-gray-100 dark:bg-gray-700 
@@ -71,6 +101,8 @@ export default function Contact() {
               <label className="text-sm text-gray-800 dark:text-gray-200">Your Email</label>
               <input
                 type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value = {email}
                 placeholder="Enter your email"
                 className="w-full p-3 mt-1 
                            bg-gray-100 dark:bg-gray-700 
@@ -85,6 +117,8 @@ export default function Contact() {
             <input
               type="text"
               placeholder="How can I help you?"
+              onChange={(e) => setSubject(e.target.value)}
+              value = {subject}
               className="w-full p-3 mt-1 
                          bg-gray-100 dark:bg-gray-700 
                          rounded-lg text-gray-900 dark:text-white 
@@ -96,6 +130,8 @@ export default function Contact() {
             <label className="text-sm text-gray-800 dark:text-gray-200">Message</label>
             <textarea
               placeholder="Your message here..."
+              onChange={(e) => setMessage(e.target.value)}
+              value = {message}
               className="w-full h-32 p-3 mt-1 
                          bg-gray-100 dark:bg-gray-700 
                          rounded-lg text-gray-900 dark:text-white 

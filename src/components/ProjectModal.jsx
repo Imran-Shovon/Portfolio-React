@@ -38,7 +38,7 @@ const ProjectModal = ({ isOpen, closeModal, project }) => {
                 {/* Close Button */}
                 <button
                   onClick={closeModal}
-                  className="absolute top-3 right-3 text-white hover:text-purple-500 text-xl"
+                  className="absolute top-3 right-3 w-11 bg-gray-400 hover:bg-gray-700 text-white cursor-pointer text-4xl hover:text-white rounded-xl flex items-center justify-center transition-colors"
                 >
                   &times;
                 </button>
@@ -65,7 +65,7 @@ const ProjectModal = ({ isOpen, closeModal, project }) => {
                   ))}
                 </div>
 
-                <p className="text-gray-300 text-sm mt-4 whitespace-pre-line">
+                <p className="text-gray-300 text-sm mt-4 whitespace-pre-line text-justify">
                   {project.description}
                 </p>
 
