@@ -1,32 +1,76 @@
+import { onValue, push, ref } from "firebase/database";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import { db } from "../../firebaseConfig";
 
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+
+// useEffect(() => {
+//   getContactInfo();
+// }, []);
+
+  // const getContactInfo = () => {
+  //   const contactsRef = ref(db, "contacts");
+  //   onValue(contactsRef, (snapshot) => {
+  //     const data = snapshot.val();
+  //     if (data) {
+  //       // Convert object to array
+  //       const contactsArray = Object.keys(data).map((key) => ({
+  //         id: key,
+  //         ...data[key],
+  //       }));
+  //       console.log("Contacts data:", contactsArray);
+  //     } else {
+  //       console.log("No data available");
+  //     }
+  //     console.log("Fetched data:", data);
+  //   }, (error) => {
+  //     console.error("Error fetching data:", error);
+  //   });
+  // }
 
   const handleReset = () => {
     setName("");
     setEmail("");
+    setPhone("");
     setSubject("");
     setMessage("");
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const ContactInfo = {
-      name: name,
-      email: email,
-      subject: subject,
-      message: message,
-    }
-    console.log(ContactInfo);
-    alert("Your message has been sent successfully!");
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const contactInfo = {
+    name,
+    email,
+    phone,
+    subject,
+    message,
+    timestamp: new Date()
+  };
 
-    handleReset();
-  }
+  try {
+      const contactsRef = ref(db, "contacts");
+      await push(contactsRef, contactInfo);
+      toast.success("Your message has been sent successfully!", {
+        position: "bottom-right",
+        autoClose: 3000,
+      });
+      handleReset();
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Something went wrong. Please try again later.", {
+        position: "bottom-right",
+        autoClose: 3000,
+      });
+    }
+};
+
 
 
   return (
@@ -35,7 +79,7 @@ export default function Contact() {
                     text-gray-900 dark:text-white 
                     flex flex-col items-center justify-center 
                     transition-colors duration-300">
-      
+      <ToastContainer />
       <div className="mb-4 text-sm font-semibold text-blue-600 dark:text-blue-400">
         Get In Touch
       </div>
@@ -112,6 +156,19 @@ export default function Contact() {
             </div>
           </div>
 
+          <div>
+            <label className="text-sm text-gray-800 dark:text-gray-200">Phone Number</label>
+            <input
+              type="number"
+              placeholder="Enter your phone number"
+              onChange={(e) => setPhone(e.target.value)}
+              value = {phone}
+              className="w-full p-3 mt-1 
+                         bg-gray-100 dark:bg-gray-700 
+                         rounded-lg text-gray-900 dark:text-white 
+                         focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
           <div>
             <label className="text-sm text-gray-800 dark:text-gray-200">Subject</label>
             <input
