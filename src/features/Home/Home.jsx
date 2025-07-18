@@ -45,7 +45,7 @@ const Home = () => {
             href="https://drive.google.com/file/d/1W7U-KWDSOEPnrJKgFvIIzKiq3Dmgtcq0/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-3 rounded-md bg-gray-700 dark:bg-gray-600 text-white hover:bg-blue-500 dark:hover:bg-blue-400 transition duration-300"
+            className="inline-block px-6 py-3 rounded-md bg-gray-300 dark:bg-gray-600 text-blue-100 dark:text-white hover:bg-blue-300 dark:hover:bg-blue-400 transition duration-300"
           >
             Check Resume
           </a>
