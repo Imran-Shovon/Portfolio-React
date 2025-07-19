@@ -1,19 +1,19 @@
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import LOGO_IMAGE from '../assets/images/shovon_logo.png';
-import { toggleDarkMode } from "../utils/theme";
+// import { toggleDarkMode } from "../utils/theme";
 import Button from "./Button";
 
 const Navbar = () => {
-  const [isDark, setIsDark] = useState(() =>
-    document.documentElement.classList.contains("dark")
-  );
+  // const [isDark, setIsDark] = useState(() =>
+  //   document.documentElement.classList.contains("dark")
+  // );
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleDarkToggle = () => {
-    toggleDarkMode();
-    setIsDark(!isDark);
-  };
+  // const handleDarkToggle = () => {
+  //   toggleDarkMode();
+  //   setIsDark(!isDark);
+  // };
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
@@ -57,22 +57,22 @@ const Navbar = () => {
               {item}
             </a>
           ))}
-          <Button
+          {/* <Button
             onClick={handleDarkToggle}
             className="bg-gray-700 text-gray-800 dark:text-white hover:bg-gray-400 dark:hover:bg-gray-700 p-2 rounded-full"
           >
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
-          </Button>
+          </Button> */}
         </nav>
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center gap-2">
-          <Button
+          {/* <Button
             onClick={handleDarkToggle}
             className="bg-gray-700 text-gray-800 dark:text-white hover:bg-gray-400 dark:hover:bg-gray-700 p-2 rounded-full"
           >
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
-          </Button>
+          </Button> */}
           <Button
             onClick={handleMenuToggle}
             className="text-gray-800 dark:text-white p-2 rounded-full"

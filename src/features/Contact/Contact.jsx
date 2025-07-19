@@ -199,7 +199,7 @@ const handleSubmit = async (e) => {
           <button
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 
-                       text-white p-3 rounded-lg 
+                       text-white p-3 rounded-lg cursor-pointer
                        flex items-center justify-center gap-2 font-medium 
                        transition"
           >
