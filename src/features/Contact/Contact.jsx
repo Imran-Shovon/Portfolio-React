@@ -1,8 +1,9 @@
-import { onValue, push, ref } from "firebase/database";
+import { push, ref } from "firebase/database";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { db } from "../../firebaseConfig";
+import emailjs from "emailjs-com";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -11,53 +12,45 @@ export default function Contact() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-// useEffect(() => {
-//   getContactInfo();
-// }, []);
-
-  // const getContactInfo = () => {
-  //   const contactsRef = ref(db, "contacts");
-  //   onValue(contactsRef, (snapshot) => {
-  //     const data = snapshot.val();
-  //     if (data) {
-  //       // Convert object to array
-  //       const contactsArray = Object.keys(data).map((key) => ({
-  //         id: key,
-  //         ...data[key],
-  //       }));
-  //       console.log("Contacts data:", contactsArray);
-  //     } else {
-  //       console.log("No data available");
-  //     }
-  //     console.log("Fetched data:", data);
-  //   }, (error) => {
-  //     console.error("Error fetching data:", error);
-  //   });
-  // }
-
   const handleReset = () => {
     setName("");
     setEmail("");
     setPhone("");
     setSubject("");
     setMessage("");
-  }
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const contactInfo = {
-    name,
-    email,
-    phone,
-    subject,
-    message,
-    timestamp: new Date()
   };
 
-  try {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const contactInfo = {
+      name,
+      email,
+      phone,
+      subject,
+      message,
+      timestamp: new Date(),
+    };
+
+    try {
+      // 1️⃣ Save to Firebase
       const contactsRef = ref(db, "contacts");
       await push(contactsRef, contactInfo);
-      toast.success("Your message has been sent successfully!", {
+
+      // 2️⃣ Send email via EmailJS
+      await emailjs.send(
+        "service_tylzr7f",   // replace with your EmailJS Service ID
+        "template_u40fi1e",  // replace with your EmailJS Template ID
+        {
+          from_name: name,
+          from_email: email,
+          phone: phone,
+          subject: subject,
+          message: message,
+        },
+        "KmNYP9WIlrHvVJuNR"    // replace with your EmailJS Public Key
+      );
+
+      toast.success("Your email has been sent successfully!", {
         position: "bottom-right",
         autoClose: 3000,
       });
@@ -69,16 +62,16 @@ const handleSubmit = async (e) => {
         autoClose: 3000,
       });
     }
-};
-
-
+  };
 
   return (
-    <div className="min-h-screen py-24 px-6 
-                    bg-gray-50 dark:bg-gray-900 
-                    text-gray-900 dark:text-white 
-                    flex flex-col items-center justify-center 
-                    transition-colors duration-300">
+    <div
+      className="min-h-screen py-24 px-6 
+                 bg-gray-50 dark:bg-gray-900 
+                 text-gray-900 dark:text-white 
+                 flex flex-col items-center justify-center 
+                 transition-colors duration-300"
+    >
       <ToastContainer />
       <div className="mb-4 text-sm font-semibold text-blue-600 dark:text-blue-400">
         Get In Touch
@@ -87,7 +80,8 @@ const handleSubmit = async (e) => {
       <h2 className="text-4xl font-bold mb-2">Contact Me</h2>
 
       <p className="text-center max-w-xl text-gray-700 dark:text-gray-400 mb-10">
-        Feel free to reach out to me for any questions or opportunities. I'll get back to you as soon as possible.
+        Feel free to reach out to me for any questions or opportunities. I'll
+        get back to you as soon as possible.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-6xl">
@@ -98,8 +92,15 @@ const handleSubmit = async (e) => {
             <Mail className="text-blue-600 dark:text-blue-400" size={28} />
             <div>
               <h3 className="text-lg font-semibold">Email</h3>
-              <p className="text-sm text-gray-700 dark:text-gray-300">shovonbiswas.cse@gmail.com</p>
-              <a href="mailto:shovonbiswas.cse@gmail.com" className="text-blue-600 dark:text-blue-400 text-sm">Send an email</a>
+              <p className="text-sm text-gray-700 dark:text-gray-300">
+                shovonbiswas.cse@gmail.com
+              </p>
+              <a
+                href="mailto:shovonbiswas.cse@gmail.com"
+                className="text-blue-600 dark:text-blue-400 text-sm"
+              >
+                Send an email
+              </a>
             </div>
           </div>
 
@@ -108,8 +109,15 @@ const handleSubmit = async (e) => {
             <Phone className="text-blue-600 dark:text-blue-400" size={28} />
             <div>
               <h3 className="text-lg font-semibold">Phone</h3>
-              <p className="text-sm text-gray-700 dark:text-gray-300">+880 1776752696</p>
-              <a href="tel:+8801540581443" className="text-blue-600 dark:text-blue-400 text-sm">Make a call</a>
+              <p className="text-sm text-gray-700 dark:text-gray-300">
+                +880 1776752696
+              </p>
+              <a
+                href="tel:+8801540581443"
+                className="text-blue-600 dark:text-blue-400 text-sm"
+              >
+                Make a call
+              </a>
             </div>
           </div>
 
@@ -126,14 +134,19 @@ const handleSubmit = async (e) => {
         </div>
 
         {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8 space-y-6">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8 space-y-6"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="text-sm text-gray-800 dark:text-gray-200">Your Name</label>
+              <label className="text-sm text-gray-800 dark:text-gray-200">
+                Your Name
+              </label>
               <input
                 type="text"
                 onChange={(e) => setName(e.target.value)}
-                value = {name}
+                value={name}
                 placeholder="Enter your name"
                 className="w-full p-3 mt-1 
                            bg-gray-100 dark:bg-gray-700 
@@ -142,11 +155,13 @@ const handleSubmit = async (e) => {
               />
             </div>
             <div>
-              <label className="text-sm text-gray-800 dark:text-gray-200">Your Email</label>
+              <label className="text-sm text-gray-800 dark:text-gray-200">
+                Your Email
+              </label>
               <input
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
-                value = {email}
+                value={email}
                 placeholder="Enter your email"
                 className="w-full p-3 mt-1 
                            bg-gray-100 dark:bg-gray-700 
@@ -157,12 +172,14 @@ const handleSubmit = async (e) => {
           </div>
 
           <div>
-            <label className="text-sm text-gray-800 dark:text-gray-200">Phone Number</label>
+            <label className="text-sm text-gray-800 dark:text-gray-200">
+              Phone Number
+            </label>
             <input
               type="number"
               placeholder="Enter your phone number"
               onChange={(e) => setPhone(e.target.value)}
-              value = {phone}
+              value={phone}
               className="w-full p-3 mt-1 
                          bg-gray-100 dark:bg-gray-700 
                          rounded-lg text-gray-900 dark:text-white 
@@ -170,12 +187,14 @@ const handleSubmit = async (e) => {
             />
           </div>
           <div>
-            <label className="text-sm text-gray-800 dark:text-gray-200">Subject</label>
+            <label className="text-sm text-gray-800 dark:text-gray-200">
+              Subject
+            </label>
             <input
               type="text"
               placeholder="How can I help you?"
               onChange={(e) => setSubject(e.target.value)}
-              value = {subject}
+              value={subject}
               className="w-full p-3 mt-1 
                          bg-gray-100 dark:bg-gray-700 
                          rounded-lg text-gray-900 dark:text-white 
@@ -184,11 +203,13 @@ const handleSubmit = async (e) => {
           </div>
 
           <div>
-            <label className="text-sm text-gray-800 dark:text-gray-200">Message</label>
+            <label className="text-sm text-gray-800 dark:text-gray-200">
+              Message
+            </label>
             <textarea
-              placeholder="Your message here..."
+              placeholder="Message here..."
               onChange={(e) => setMessage(e.target.value)}
-              value = {message}
+              value={message}
               className="w-full h-32 p-3 mt-1 
                          bg-gray-100 dark:bg-gray-700 
                          rounded-lg text-gray-900 dark:text-white 
@@ -203,7 +224,7 @@ const handleSubmit = async (e) => {
                        flex items-center justify-center gap-2 font-medium 
                        transition"
           >
-            <Send size={18} /> Send Message
+            <Send size={18} /> Send Email
           </button>
         </form>
       </div>

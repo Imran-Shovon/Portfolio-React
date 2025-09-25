@@ -33,7 +33,7 @@ const Home = () => {
           Driven by curiosity and fueled by creativity, I’m a passionate and detail-oriented software engineer 
           with a strong background in <strong>frontend development and academic research</strong>. 
           With a strong foundation in 
-          frontend technologies like React and Angular. I’ve published three research papers, 
+          frontend technologies like Angular, React and NextJs. I’ve published three research papers, 
           showcasing my ability to blend innovation with real-world problem-solving. I’m committed to continuous 
           learning, clean code, and creating meaningful impact through innovation, collaboration, and thoughtful 
           problem-solving.
@@ -48,6 +48,16 @@ const Home = () => {
             className="inline-block px-6 py-3 rounded-md bg-gray-300 dark:bg-gray-600 text-blue-100 dark:text-white hover:bg-blue-300 dark:hover:bg-blue-400 transition duration-300"
           >
             Check Resume
+          </a>
+        </div>
+        <div className="mt-6 mb-6">
+          <a
+            href="https://drive.google.com/file/d/1W7U-KWDSOEPnrJKgFvIIzKiq3Dmgtcq0/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-3 rounded-md bg-gray-200 dark:bg-gray-400 text-blue-100 dark:text-white hover:bg-blue-300 dark:hover:bg-blue-400 transition duration-300"
+          >
+            Academic CV
           </a>
         </div>
       </div>

@@ -1,5 +1,10 @@
 import {
-  Code2, Server, Database, Braces, Wrench, PenTool
+  Braces,
+  Brain,
+  Code2,
+  Database,
+  Server,
+  Wrench
 } from "lucide-react";
 
 const skills = [
@@ -15,7 +20,7 @@ const skills = [
   {
     title: "Backend",
     icon: <Server className="text-green-500" />,
-    items: ["Node.js", "DotNet Core", "Django", "REST API"],
+    items: ["Node.js", "Fast API", "DotNet Core", "Django", "REST API"],
   },
   {
     title: "Database",
@@ -28,17 +33,30 @@ const skills = [
     items: ["JavaScript", "TypeScript", "C#", "C++", "Python" ],
   },
   {
+    title: "Machine Learning & Research",
+    icon: <Brain className="text-indigo-500" />, // import { Brain } from "lucide-react"
+    items: [
+      "Machine Learning",
+      "Computer Vision", 
+      "Data Analysis",
+      "Deep Learning",
+      "Model Training & Evaluation",
+      "TensorFlow", 
+      "Natural Language Processing (NLP)", 
+      "Data Preprocessing & Feature Engineering",
+      "Research & Publications (3 Papers)",
+    ],
+  },
+  {
     title: "Tools",
     icon: <Wrench className="text-yellow-500" />,
-    items: ["VS Code", "Git CLI", "GitHub", "Postman", "Chrome DevTools", "Docker", "Jenkns", "Kubernetes",
-      "ClickUp","Jira", "Figma",  "Vercel"],
+    items: [
+      "VS Code", "Git CLI", "GitHub", "Postman", "Chrome DevTools", 
+      "Docker", "Jenkns", "Kubernetes", "ClickUp","Jira", "Figma",  "Vercel"
+    ],
   },
-  // {
-  //   title: "Creative",
-  //   icon: <PenTool className="text-red-500" />,
-  //   items: ["Figma", "Illustrator", "Photoshop"],
-  // },
 ];
+
 
 export default function Skills() {
   return (
@@ -47,11 +65,14 @@ export default function Skills() {
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">My Skills</p>
         <h2 className="text-4xl font-bold mb-10">Skill Highlights</h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid cursor-pointer md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((category) => (
             <div
               key={category.title}
-              className="bg-slate-100 dark:bg-gray-900 rounded-2xl p-6 shadow-md border border-gray-200 dark:border-gray-800 transition-colors"
+              className="bg-slate-100 dark:bg-gray-900 rounded-2xl p-6 shadow-md border 
+                        border-gray-200 dark:border-gray-800 
+                        transition-all duration-300 ease-in-out
+                        hover:scale-105 hover:shadow-xl"
             >
               <h3 className="text-xl font-semibold flex items-center gap-2 mb-4">
                 {category.icon} {category.title}
@@ -60,7 +81,9 @@ export default function Skills() {
                 {category.items.map((skill) => (
                   <span
                     key={skill}
-                    className="bg-slate-200 dark:bg-slate-800 text-sm px-3 py-1 rounded-md text-slate-800 dark:text-slate-100 hover:bg-blue-500 dark:hover:bg-blue-500 transition"
+                    className="bg-slate-200 dark:bg-slate-800 text-sm px-3 py-1 rounded-md 
+                              text-slate-800 dark:text-slate-100 
+                              transition"
                   >
                     {skill}
                   </span>
@@ -69,6 +92,7 @@ export default function Skills() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
