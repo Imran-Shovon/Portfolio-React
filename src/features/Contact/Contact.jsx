@@ -38,8 +38,8 @@ export default function Contact() {
 
       // 2️⃣ Send email via EmailJS
       await emailjs.send(
-        "service_tylzr7f",   // replace with your EmailJS Service ID
-        "template_u40fi1e",  // replace with your EmailJS Template ID
+        "service_7wzgb19",   // replace with your EmailJS Service ID
+        "template_egvbrpe",  // replace with your EmailJS Template ID
         {
           from_name: name,
           from_email: email,
@@ -47,7 +47,7 @@ export default function Contact() {
           subject: subject,
           message: message,
         },
-        "KmNYP9WIlrHvVJuNR"    // replace with your EmailJS Public Key
+        "-eOeRqte0oCDci3Qa"    // replace with your EmailJS Public Key
       );
 
       toast.success("Your email has been sent successfully!", {
