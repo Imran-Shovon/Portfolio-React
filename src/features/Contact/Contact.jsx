@@ -12,6 +12,36 @@ export default function Contact() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
+  // ✅ Simple validation function
+  const validateForm = () => {
+    if (!name || name.length < 3) {
+      toast.error("Name must be at least 3 characters.",
+        { position: "bottom-right", autoClose: 3000 }
+      );
+      return false;
+    }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast.error("Please enter a valid email address.",
+        { position: "bottom-right", autoClose: 3000 });
+      return false;
+    }
+    if (!phone || !/^\d{10,15}$/.test(phone)) {
+      toast.error("Phone number must be 10–15 digits.",
+        { position: "bottom-right", autoClose: 3000 });
+      return false;
+    }
+    if (!subject || subject.length < 3) {
+      toast.error("Subject must be at least 3 characters.",
+        { position: "bottom-right", autoClose: 3000 });
+      return false;
+    }
+    if (!message || message.length < 10) {
+      toast.error("Message must be at least 10 characters.");
+      return false;
+    }
+    return true;
+  };
+
   const handleReset = () => {
     setName("");
     setEmail("");
@@ -22,6 +52,10 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // ✅ Run validation
+    if (!validateForm()) return;
+
     const contactInfo = {
       name,
       email,
@@ -38,8 +72,8 @@ export default function Contact() {
 
       // 2️⃣ Send email via EmailJS
       await emailjs.send(
-        "service_7wzgb19",   // replace with your EmailJS Service ID
-        "template_egvbrpe",  // replace with your EmailJS Template ID
+        "service_7wzgb19", // replace with your Service ID
+        "template_egvbrpe", // replace with your Template ID
         {
           from_name: name,
           from_email: email,
@@ -47,7 +81,7 @@ export default function Contact() {
           subject: subject,
           message: message,
         },
-        "-eOeRqte0oCDci3Qa"    // replace with your EmailJS Public Key
+        "-eOeRqte0oCDci3Qa" // replace with your Public Key
       );
 
       toast.success("Your email has been sent successfully!", {
@@ -85,9 +119,8 @@ export default function Contact() {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-6xl">
-        {/* Contact Info */}
+        {/* Contact Info (left side) */}
         <div className="flex flex-col gap-6">
-          {/* Email */}
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 flex items-start gap-4">
             <Mail className="text-blue-600 dark:text-blue-400" size={28} />
             <div>
@@ -104,7 +137,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Phone */}
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 flex items-start gap-4">
             <Phone className="text-blue-600 dark:text-blue-400" size={28} />
             <div>
@@ -121,7 +153,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Location */}
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 flex items-start gap-4">
             <MapPin className="text-blue-600 dark:text-blue-400" size={28} />
             <div>
@@ -133,7 +164,7 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Contact Form */}
+        {/* Contact Form (right side) */}
         <form
           onSubmit={handleSubmit}
           className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8 space-y-6"
@@ -186,6 +217,7 @@ export default function Contact() {
                          focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
+
           <div>
             <label className="text-sm text-gray-800 dark:text-gray-200">
               Subject
