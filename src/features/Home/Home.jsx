@@ -50,7 +50,7 @@ const Home = () => {
             Check Resume
           </a>
         </div>
-        <div className="mt-6 mb-6">
+        {/* <div className="mt-6 mb-6">
           <a
             href="https://drive.google.com/file/d/1W7U-KWDSOEPnrJKgFvIIzKiq3Dmgtcq0/view?usp=sharing"
             target="_blank"
@@ -59,7 +59,7 @@ const Home = () => {
           >
             Academic CV
           </a>
-        </div>
+        </div> */}
       </div>
 
       {/* Profile Picture */}
